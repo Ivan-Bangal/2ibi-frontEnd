@@ -1,5 +1,5 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import { Children, useEffect, useState } from "react";
+import { Children, useState } from "react";
 
 
 type CarouselProps = {
@@ -9,8 +9,6 @@ type CarouselProps = {
 }
 
 export default function Carousel({ children }: CarouselProps) {
-
-    const [slidesCount, setSlideCount] = useState(Children.count(children))
 
     const arrowStyles = {
         cursor: "pointer",
@@ -32,9 +30,7 @@ export default function Carousel({ children }: CarouselProps) {
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    useEffect(() => {
-        setSlideCount(Children.count(children))
-    },[children])
+    const slidesCount = Children.count(children);
 
     const prevSlide = () => {
 
@@ -48,7 +44,7 @@ export default function Carousel({ children }: CarouselProps) {
 
     const nextSlide = () => {
         if (currentSlide == slidesCount) {
-            setCurrentSlide(slidesCount - 1)
+            setCurrentSlide(slidesCount -1)
         } else {
             setCurrentSlide((s) => (s === slidesCount - 1 ? 0 : s + 1));
         }

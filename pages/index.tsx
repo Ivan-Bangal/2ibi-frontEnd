@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Input, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
+import { Box, Center, Container, Flex, Input, SimpleGrid, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     console.log(e.target.value)
     setFilterText(e.target.value);
   }
- 
+
 
   useEffect(() => {
     if (!loading) {
@@ -58,10 +58,12 @@ const Home: NextPage = () => {
 
 
   return (
-    <Flex bg={"white"}>
+    <SimpleGrid bg={"white"}>
 
+      <Center>
 
-      <Input w={"100%"} size={"lg"} type={"text"} onChange={handleChangeInput}></Input>
+        <Input size={"lg"} type={"text"} onChange={handleChangeInput}></Input>
+      </Center>
 
       <Carousel>
         <>
@@ -72,7 +74,7 @@ const Home: NextPage = () => {
         </>
       </Carousel>
 
-    </Flex>
+    </SimpleGrid >
   )
 }
 
