@@ -1,5 +1,7 @@
-import { Flex, chakra, Box, Image, Link, Skeleton } from "@chakra-ui/react";
+import { Flex, chakra, Box, Image, Link as Ok, Skeleton } from "@chakra-ui/react";
+import Link from "next/link";
 import { Country } from "../../model/countries";
+ 
 
 interface CardProp {
     country: Country,
@@ -42,7 +44,7 @@ export default function SimpleCard({ country, loading }: CardProp) {
                     </Skeleton>
                     <Box py={5} textAlign="center">
                         <Skeleton>
-                            <Link
+                            <Ok
                                 display="block"
                                 fontSize="2xl"
                                 color="gray.800"
@@ -52,7 +54,7 @@ export default function SimpleCard({ country, loading }: CardProp) {
                                 fontWeight="bold"
                             >
                                 {"country.name.official"}
-                            </Link>
+                            </Ok>
                         </Skeleton>
                         <Skeleton>
                             <chakra.span
@@ -62,7 +64,7 @@ export default function SimpleCard({ country, loading }: CardProp) {
                                     color: "gray.200",
                                 }}
                             >
-                                Software Engineer
+                               
                             </chakra.span>
                         </Skeleton>
                     </Box>
@@ -72,64 +74,70 @@ export default function SimpleCard({ country, loading }: CardProp) {
     }
 
     return (
-        <Flex
-            bg="white"
-            _dark={{
-                bg: "#3e3e3e",
-            }}
-            p={50}
-            w="full"
-            alignItems="center"
-            justifyContent="center"
+        <Link
+            href={"/country/" + country.cca2}
+            itemProp=""
         >
-            <Box
-                w="xs"
+            <Flex
                 bg="white"
                 _dark={{
-                    bg: "gray.800",
+                    bg: "#3e3e3e",
                 }}
-                shadow="lg"
-                rounded="lg"
-                overflow="hidden"
-                mx="auto"
+                p={50}
+                w="full"
+                alignItems="center"
+                justifyContent="center"
             >
+                <Box
+                    w="xs"
+                    bg="white"
+                    _dark={{
+                        bg: "gray.800",
+                    }}
+                    shadow="lg"
+                    rounded="lg"
+                    overflow="hidden"
+                    mx="auto"
+                >
 
-                <Image
-                    w="full"
-                    h={56}
-                    fit="cover"
-                    src={country.flags.png}
-                    alt="avatar"
-                />
+                    <Image
+                        w="full"
+                        h={56}
+                        fit="cover"
+                        src={country.flags.png}
+                        alt="avatar"
+                    />
 
-                <Box py={5} textAlign="center">
+                    <Box py={5} textAlign="center">
 
-                    <Link
-                        display="block"
-                        fontSize="2xl"
-                        color="gray.800"
-                        _dark={{
-                            color: "white",
-                        }}
-                        fontWeight="bold"
-                    >
-                        {country.name.official}
-                    </Link>
+                        <Ok
+                            display="block"
+                            fontSize="2xl"
+                            color="gray.800"
+                            _dark={{
+                                color: "white",
+                            }}
+                            fontWeight="bold"
+                        >
+                            {country.name.official}
+                        </Ok>
 
 
-                    <chakra.span
-                        fontSize="sm"
-                        color="gray.700"
-                        _dark={{
-                            color: "gray.200",
-                        }}
-                    >
-                        Software Engineer
-                    </chakra.span>
+                        <chakra.span
+                            fontSize="sm"
+                            color="gray.700"
+                            _dark={{
+                                color: "gray.200",
+                            }}
+                        >
+                           Capital :{country.capital}
+                        </chakra.span>
 
+                    </Box>
                 </Box>
-            </Box>
-        </Flex>
+            </Flex>
+        </Link>
+
 
     )
 }

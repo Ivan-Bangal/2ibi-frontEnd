@@ -38,7 +38,21 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
                 onClose={() => onClose}
                 display={{ base: 'none', md: 'block' }}
             />
-            
+            <Drawer
+                autoFocus={false}
+                isOpen={isOpen}
+                placement="left"
+                onClose={onClose}
+                returnFocusOnClose={false}
+                onOverlayClick={onClose}
+                size="full">
+                <DrawerContent>
+                    <SidebarContent onClose={onClose} />
+                </DrawerContent>
+            </Drawer>
+            {/* mobilenav */}
+            <MobileNav onOpen={onOpen} />
+
             <Box ml={{ base: 0, md: 60 }} >
                 {children}
             </Box>
@@ -62,7 +76,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             {...rest}>
             <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
                 <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-                   Paises
+                    Paises
                 </Text>
                 <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
             </Flex>

@@ -23,3 +23,13 @@ export const getAllCountries = () => {
     })
  
 }
+
+
+export const useGetSpecificCountries = (cca2 : String) => {
+
+    const { data, error } = useSWR(url + "alpha/"+cca2, fetcher);
+
+
+    return { data, loading: !error && !data, error };
+
+}

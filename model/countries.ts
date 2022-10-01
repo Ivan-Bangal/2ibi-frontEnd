@@ -92,24 +92,24 @@ export interface Maps {
     openStreetMaps: string;
 }
 
-export interface Name {
-    common:     string;
-    official:   string;
-    nativeName: NativeName;
+export class Name {
+    common!:     string;
+    official!:   string;
+    nativeName!: NativeName;
 }
 
-export interface NativeName {
-    aym: Translation;
-    que: Translation;
-    spa: Translation;
+export class NativeName {
+    aym!: Translation;
+    que!: Translation;
+    spa!: Translation;
 }
 
-export interface Translation {
-    official: string;
-    common:   string;
+export class Translation {
+    official!: string;
+    common!:   string;
 }
 
-export interface PostalCode {
-    format: string;
-    regex:  string;
+export class PostalCode {
+    format!: string;
+    regex!:  string;
 }

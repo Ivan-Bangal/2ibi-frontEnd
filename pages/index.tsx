@@ -43,38 +43,50 @@ const Home: NextPage = () => {
 
   if (loading) {
     return (
-      <Flex bg={"white"}>
+      <SimpleGrid bg={"white"} columns={4}>
 
-        <Carousel>
 
-          <SimpleCard country={new Country()} loading={loading}></SimpleCard>
 
-        </Carousel>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
+        <SimpleCard country={new Country()} loading={loading}></SimpleCard>
 
-      </Flex>
+      </SimpleGrid>
     )
   }
 
 
 
   return (
-    <SimpleGrid bg={"white"}>
-
+    <>
       <Center>
-
         <Input size={"lg"} type={"text"} onChange={handleChangeInput}></Input>
       </Center>
 
-      <Carousel>
+      <SimpleGrid bg={"white"} columns={4}>
+
+
+
         <>
           {filterItems.map((country: Country, id: number) => (
             <SimpleCard country={country} loading={loading} key={id}></SimpleCard>
           ))
           }
         </>
-      </Carousel>
 
-    </SimpleGrid >
+
+      </SimpleGrid >
+
+    </>
   )
 }
 
