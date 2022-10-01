@@ -42,19 +42,10 @@ export default function CountryPage() {
 
     return (
         <Flex bg={"white"} pl={"20vh"} pt={"50px"} position="relative" >
-
-
-
             {countries.map((country: Country, id: number) => (
                 <CountryDetails key={id} country={country} />
             ))
             }
-
-
-
-
-
-
         </Flex>
 
     )
