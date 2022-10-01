@@ -64,7 +64,7 @@ export default function SimpleCard({ country, loading }: CardProp) {
                                     color: "gray.200",
                                 }}
                             >
-                               
+                               Capital
                             </chakra.span>
                         </Skeleton>
                     </Box>
@@ -76,7 +76,7 @@ export default function SimpleCard({ country, loading }: CardProp) {
     return (
         <Link
             href={"/country/" + country.cca2}
-            itemProp=""
+             
         >
             <Flex
                 bg="white"
@@ -112,7 +112,7 @@ export default function SimpleCard({ country, loading }: CardProp) {
 
                         <Ok
                             display="block"
-                            fontSize="2xl"
+                            fontSize="medium"
                             color="gray.800"
                             _dark={{
                                 color: "white",

@@ -29,6 +29,7 @@ export default function CountryDetails({ country }: CountryDetailsProps) {
                     }
                     fit={'fill'}
                     align={'center'}
+                    border={'1px'}
                 />
             </Flex>
             <Stack>
@@ -36,8 +37,8 @@ export default function CountryDetails({ country }: CountryDetailsProps) {
                     <Heading
                         lineHeight={1.1}
                         fontWeight={600}
-                        fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
-                        Name: {country.name.common}
+                        fontSize={{ base: '2xl', sm: '2xl', lg: '2xl' }}>
+                         {country.name.common}
                     </Heading>
 
                 </Box>
@@ -52,16 +53,16 @@ export default function CountryDetails({ country }: CountryDetailsProps) {
                     }>
                     <VStack spacing={{ base: 4, sm: 6 }}>
                         <Text
-                            color={useColorModeValue('gray.500', 'gray.400')}
+                           
                             fontSize={'2xl'}
-                            fontWeight={'300'}>
-                            Capital: {country.capital}
+                            >
+                            Capital {country.capital}
                         </Text>
                         <Text fontSize={'lg'}>
-                            Region: {country.region}
+                             {country.region}
                         </Text>
                         <Text fontSize={'lg'}>
-                            Population: {country.population}
+                            Population {country.population}
                         </Text>
                     </VStack>
                     <Box>
@@ -76,19 +77,22 @@ export default function CountryDetails({ country }: CountryDetailsProps) {
 
                         <SimpleGrid columns={{ base: 1, md: 2 }}  >
                             <List  >
-                                {country.borders.map((border: String, id: number) => (
-                                    <Ok key={id}>
-                                        <Link href={"/country/" + border} >
-                                            <ListItem>
-                                                <Text
-                                                    fontSize={'2xl'}
-                                                >
-                                                    {border}
-                                                </Text>
-                                            </ListItem>
-                                        </Link>
-                                    </Ok>
-                                ))}
+                                {
+
+                                    country.borders?.map((border: String, id: number) => (
+                                        <Ok key={id}>
+                                            <Link href={"/country/" + border} >
+                                                <ListItem>
+                                                    <Text
+                                                        fontSize={'2xl'}
+                                                    >
+                                                        {border}
+                                                    </Text>
+                                                </ListItem>
+                                            </Link>
+                                        </Ok>
+                                    ))
+                                }
                             </List>
 
                         </SimpleGrid>
@@ -96,9 +100,8 @@ export default function CountryDetails({ country }: CountryDetailsProps) {
 
                 </Stack>
                 <HStack>
-                    <ExportCSV csvData={[country]} fileName={country.name.common + "File"} fileExtension=".xlsx"/>
-                    <ExportCSV csvData={[country]} fileName={country.name.common + "File"} fileExtension=".csv"/>
-                    
+                    <ExportCSV csvData={[country]} fileName={country.name.common + "File"} fileExtension=".xlsx" />
+                    <ExportCSV csvData={[country]} fileName={country.name.common + "File"} fileExtension=".csv" />
                 </HStack>
             </Stack>
         </SimpleGrid>
